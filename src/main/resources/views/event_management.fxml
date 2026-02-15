@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="app.controllers.EventManagementController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Gestion des événements" style="-fx-font-size: 20;" />
+
+    <!-- Formulaire -->
+    <HBox spacing="10">
+        <TextField fx:id="sportField" promptText="Sport"/>
+        <DatePicker fx:id="datePicker"/>
+        <TextField fx:id="locationField" promptText="Lieu"/>
+        <TextField fx:id="capacityField" promptText="Capacité"/>
+        <Button text="Ajouter" onAction="#onAdd"/>
+    </HBox>
+
+    <!-- Table -->
+    <TableView fx:id="tableView" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+            <TableColumn fx:id="colSport" text="Sport" prefWidth="120"/>
+            <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+            <TableColumn fx:id="colLocation" text="Lieu" prefWidth="150"/>
+            <TableColumn fx:id="colCapacity" text="Capacité" prefWidth="100"/>
+            <TableColumn fx:id="colStatus" text="Statut" prefWidth="120"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10">
+        <Button text="Supprimer sélection" onAction="#onDelete"/>
+        <Button text="Retour Dashboard" onAction="#onBack"/>
+    </HBox>
+
+
+</VBox>

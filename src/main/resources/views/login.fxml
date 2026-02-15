@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="app.controllers.LoginController"
+            style="-fx-background-color: white;">
+
+    <center>
+        <VBox alignment="CENTER">
+            <padding>
+                <Insets top="40" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <!-- CARD -->
+            <VBox spacing="14"
+                  alignment="CENTER"
+                  prefWidth="380"
+                  style="-fx-background-color: white;
+                         -fx-padding: 25;
+                         -fx-background-radius: 16;
+                         -fx-border-radius: 16;
+                         -fx-border-color: #e6e6e6;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 18, 0.25, 0, 4);">
+
+                <ImageView fitHeight="90" preserveRatio="true">
+                    <image>
+                        <Image url="@/assets/lcss.png"/>
+                    </image>
+                </ImageView>
+
+                <Label text="Connexion"
+                       style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+                <TextField fx:id="emailField"
+                           promptText="Email"
+                           prefWidth="999"/>
+
+                <!-- Password with toggle -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <StackPane HBox.hgrow="ALWAYS">
+                        <PasswordField fx:id="passwordField" promptText="Mot de passe"/>
+                        <TextField fx:id="passwordTextField"
+                                   promptText="Mot de passe"
+                                   visible="false"
+                                   managed="false"/>
+                    </StackPane>
+                    <ToggleButton fx:id="togglePassword"
+                                  text="👁"
+                                  onAction="#onTogglePassword"/>
+                </HBox>
+
+                <Label fx:id="errorLabel" textFill="red"/>
+
+                <Button text="Se connecter"
+                        onAction="#onLogin"
+                        prefWidth="999"/>
+
+                <Button text="Créer un compte"
+                        onAction="#onGoRegister"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #1565c0;
+                               -fx-underline: true;"/>
+
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="app.controllers.RHDashboardController"
+            style="-fx-background-color: white;">
+
+    <!-- HEADER -->
+    <top>
+        <HBox spacing="16"
+              alignment="CENTER_LEFT"
+              style="-fx-background-color: white;
+                     -fx-padding: 15 30 15 30;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 12, 0.15, 0, 2);">
+
+            <!-- LOGO -->
+            <ImageView fitHeight="50" preserveRatio="true">
+                <image>
+                    <Image url="@/assets/lcss.png"/>
+                </image>
+            </ImageView>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- AVATAR CLIQUABLE -->
+            <StackPane fx:id="avatar"
+                       prefWidth="40" prefHeight="40"
+                       style="-fx-background-radius: 999; -fx-background-color: #1565c0;"
+                       onMouseClicked="#onAvatarClick">
+
+                <Label fx:id="avatarLabel"
+                       text="??"
+                       style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+            </StackPane>
+
+        </HBox>
+    </top>
+
+    <!-- CONTENU -->
+    <center>
+        <VBox spacing="20" alignment="CENTER">
+
+            <Label text="Dashboard RH"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+            <Button text="Gérer objectifs"
+                    onAction="#onObjectives"
+                    prefWidth="220"/>
+
+            <Button text="Gérer événements"
+                    onAction="#onEvents"
+                    prefWidth="220"/>
+
+            <Button text="Statistiques"
+                    onAction="#onStats"
+                    prefWidth="220"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>

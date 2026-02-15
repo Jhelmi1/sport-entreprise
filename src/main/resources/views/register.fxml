@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="app.controllers.RegisterController"
+            style="-fx-background-color: white;">
+
+    <center>
+        <VBox alignment="CENTER">
+            <padding>
+                <Insets top="35" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <!-- CARD -->
+            <VBox spacing="14"
+                  alignment="CENTER"
+                  prefWidth="420"
+                  style="-fx-background-color: white;
+                         -fx-padding: 25;
+                         -fx-background-radius: 16;
+                         -fx-border-radius: 16;
+                         -fx-border-color: #e6e6e6;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 18, 0.25, 0, 4);">
+
+                <ImageView fitHeight="85" preserveRatio="true">
+                    <image>
+                        <Image url="@/assets/lcss.png"/>
+                    </image>
+                </ImageView>
+
+                <Label text="Créer un compte"
+                       style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+                <TextField fx:id="fullNameField"
+                           promptText="Nom complet"
+                           prefWidth="999"/>
+
+                <TextField fx:id="emailField"
+                           promptText="Email"
+                           prefWidth="999"/>
+
+                <!-- Password with toggle -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <StackPane HBox.hgrow="ALWAYS">
+                        <PasswordField fx:id="passwordField" promptText="Mot de passe"/>
+                        <TextField fx:id="passwordTextField"
+                                   promptText="Mot de passe"
+                                   visible="false"
+                                   managed="false"/>
+                    </StackPane>
+                    <ToggleButton fx:id="togglePassword"
+                                  text="👁"
+                                  onAction="#onTogglePassword"/>
+                </HBox>
+
+                <!-- Strength -->
+                <ProgressBar fx:id="strengthBar" prefWidth="999" progress="0"/>
+                <Label fx:id="strengthLabel" text="Force : -" style="-fx-text-fill: #666666;"/>
+
+                <!-- Confirm with toggle -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <StackPane HBox.hgrow="ALWAYS">
+                        <PasswordField fx:id="confirmPasswordField" promptText="Confirmer mot de passe"/>
+                        <TextField fx:id="confirmPasswordTextField"
+                                   promptText="Confirmer mot de passe"
+                                   visible="false"
+                                   managed="false"/>
+                    </StackPane>
+                    <ToggleButton fx:id="toggleConfirm"
+                                  text="👁"
+                                  onAction="#onToggleConfirm"/>
+                </HBox>
+
+                <Label fx:id="matchLabel" text=""/>
+
+                <Label fx:id="errorLabel" textFill="red"/>
+                <Label fx:id="successLabel" textFill="green"/>
+
+                <Button text="Créer"
+                        onAction="#onRegister"
+                        prefWidth="999"/>
+
+                <Button text="Déjà un compte ? Se connecter"
+                        onAction="#onGoLogin"
+                        style="-fx-background-color: transparent;
+                               -fx-text-fill: #1565c0;
+                               -fx-underline: true;"/>
+
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>
