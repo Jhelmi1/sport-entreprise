@@ -15,18 +15,16 @@
 	</properties>
 
 	<dependencies>
-		<!-- JavaFX avec classifier auto (win/linux/mac) -->
+		<!-- ✅ JavaFX (sans classifier) -->
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
 			<version>${javafx.version}</version>
-			<classifier>${os.detected.classifier}</classifier>
 		</dependency>
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-fxml</artifactId>
 			<version>${javafx.version}</version>
-			<classifier>${os.detected.classifier}</classifier>
 		</dependency>
 
 		<dependency>
@@ -43,19 +41,8 @@
 	</dependencies>
 
 	<build>
-
-		<!-- ✅ Extensions (os-maven-plugin) DOIT être dans CE build -->
-		<extensions>
-			<extension>
-				<groupId>kr.motd.maven</groupId>
-				<artifactId>os-maven-plugin</artifactId>
-				<version>1.7.1</version>
-			</extension>
-		</extensions>
-
 		<plugins>
 
-			<!-- Compiler -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -65,7 +52,6 @@
 				</configuration>
 			</plugin>
 
-			<!-- JavaFX run -->
 			<plugin>
 				<groupId>org.openjfx</groupId>
 				<artifactId>javafx-maven-plugin</artifactId>
@@ -75,7 +61,6 @@
 				</configuration>
 			</plugin>
 
-			<!-- Jar manifest -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -151,8 +136,6 @@
 								<imageName>SportEntreprise</imageName>
 								<appVersion>${project.version}</appVersion>
 								<vendor>Sport Entreprise</vendor>
-
-								<!-- Option icône (ICO uniquement) -->
 								<!-- <icon>src/main/resources/icons/app.ico</icon> -->
 							</jpackage>
 						</configuration>
