@@ -48,5 +48,17 @@
                 </configuration>
             </plugin>
         </plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jar-plugin</artifactId>
+			<version>3.4.2</version>
+			<configuration>
+				<archive>
+					<manifest>
+						<mainClass>app.MainApp</mainClass>
+					</manifest>
+				</archive>
+			</configuration>
+		</plugin>
     </build>
 </project>
